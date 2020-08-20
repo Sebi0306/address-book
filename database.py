@@ -41,8 +41,7 @@ connection_main_var = sqlite3.connect('address_book.db')
 cursor_main_var = connection_main_var.cursor()
 
 # Create table
-"""
-cursor_main_var.execute('''CREATE TABLE addresses(
+cursor_main_var.execute('''CREATE TABLE IF NOT EXISTS addresses(
     first_name text,
     last_name text,
     address text,
@@ -50,7 +49,6 @@ cursor_main_var.execute('''CREATE TABLE addresses(
     county text,
     zip_code integer)
 ''')
-"""
 
 # Submit record to database function
 def submit_record():
